@@ -1,32 +1,30 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { Actions } from 'react-native-router-flux'
+import { Router, Scene, Actions } from 'react-native-router-flux'
+import DogProfileForm from './DogProfileCard';
 
-const CreateDogProfile = () =>{
+
+const CreateDogProfile = () => {
     return (
-        <View style={styles.container}>
-            <Text style={styles.welcome}>Create Dog Profile</Text>
-            <Text
-            onPress={() => Actions.dashboard()}
-            > 
-            Dashboard
-            </Text>
+        <View style={styles.container}> 
+
         </View>
     )
 
 }
 const styles = StyleSheet.create({
-    container: {
-        height: "20%",
-        width: 'auto',  
-        flex: 1,
-        backgroundColor: 'lightblue',
-        alignItems: 'center',
-        justifyContent: 'center'
+    container:{
+        flex:1,
+        backgroundColor:"lightblue",
+        justifyContent:"space-evenly"
     },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center'
+    group:{
+        
+    },
+    input:{
+    color:"green",
+    fontFamily:"font-awesome"
     }
+
 });
 export default CreateDogProfile

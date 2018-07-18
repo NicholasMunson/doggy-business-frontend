@@ -1,41 +1,66 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Dashboard from './app/Dashboard.js'
 import { Router, Scene } from 'react-native-router-flux'
+import Dashboard from './app/Dashboard.js'
 import CreateDogProfile from './app/CreateDogProfile.js';
 import Reminder from './app/Reminder.js'; 
-
-
+import DogProfileForm from './app/DogProfileCard.js'
+const URL = "https://doggy-business-backendsql.herokuapp.com/dog-profile"
 
 const TabIcon = ({selected, title}) => {
-  return (
-    <Text style={{color: selected ? "green" : "black"}}>{title}</Text>
-  )
+    return (<Text
+        style={{
+            color: selected
+                ? "green"
+                : "black"
+        }}>{title}</Text>)
 }
 
 export default class App extends Component {
+    constructor(props){
+        super(props)
+
+        this.state ={
+            dogName: '',
+            walkTime: '',
+            favoriteToy:'',
+            nickNames: ''
+        } 
+
+    }
+
+componentWillMount(){
+    fetch(URL)
+    .then(res => res.json())
+    .then(console.log)
+}
     render() {
         return (
             <Router>
                 <Scene key='root'>
                     <Scene 
-                      key="tabBard"
-                      tabs
-                      style={TabIcon} 
-                      > 
-                        <Scene
-                            key='dashboard'
-                            component={Dashboard}
-                            title='Dashboard'
-                            initial="initial" />
+                        key="tabBar"
+                        tabs
+                        style={TabIcon} 
+                        > 
                         <Scene 
                             key='profile' 
-                            component={CreateDogProfile} 
-                            title='Create Dog Profile' />
+                            component={() => <CreateDogProfile  component={() => <DogProfileForm />}/> }  
+                            title='Create Dog Profile'
+                            style={styles.navigation} 
+                            DogProfileForm={this.DogProfileForm}
+                            />
+                        <Scene
+                            key='dashboard'
+                            component={() => <Dashboard/>}
+                            title='Dashboard'
+                            initial="initial" 
+                            style={styles.navigation} />
                         <Scene 
                             key='reminder' 
                             component={Reminder} 
-                            title='Business Reminder' />
+                            title='Business Reminder'
+                            style={styles.navigation} />
                     </Scene>
                 </Scene>
             </Router>
@@ -53,6 +78,9 @@ const styles = StyleSheet.create({
   welcome:{
     fontSize: 20,
     textAlign: 'center',
+  },
+  navigation:{
+    
   }
 });
 

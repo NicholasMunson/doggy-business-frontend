@@ -72,19 +72,19 @@ componentWillMount(){
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#a5d9f6',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  welcome:{
-    fontSize: 20,
-    textAlign: 'center',
-  },
-  navigation:{
-    
-  }
+    container: {
+        flex: 1,
+        backgroundColor: '#a5d9f6',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    welcome:{
+        fontSize: 20,
+        textAlign: 'center',
+    },
+    navigation:{
+        
+    }
 });
 
 {/* <View style={styles.container}>

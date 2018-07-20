@@ -1,5 +1,5 @@
 import React, {Component } from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, Image } from 'react-native';
 import { Container,Content, Form, Item, Input, Label, Button } from 'native-base';
 import { Action, Actions } from 'react-native-router-flux'
 const URL = "https://doggy-business-backendsql.herokuapp.com/dog-profile"
@@ -48,6 +48,11 @@ class DogForm extends Component {
     render() {
         return (
             <Container style={style.container}>
+                <Image source={require("./images/dog_running_in_water.jpg")}
+                        style={{flex:1, height: undefined, width: "100%"}}
+                        resizeMode="contain"
+                        style={style.img}
+                        />
                 <Content >
                     <Form className="profile-form">
                         <Item inlineLabel >
@@ -76,6 +81,12 @@ class DogForm extends Component {
     container:{
         backgroundColor:"chartreuse",
 
+    },
+    img:{
+        flex:1, 
+        height: undefined, 
+        width: undefined,
+        marginTop:"0%"
     }
         })  
 export default DogForm

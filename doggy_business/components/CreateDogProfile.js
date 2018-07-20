@@ -49,7 +49,7 @@ class DogForm extends Component {
         return (
             <Container style={style.container}>
                 <Content >
-                    <Form ref={(ref) => this.formRef = ref} className="profile-form">
+                    <Form className="profile-form">
                         <Item inlineLabel >
                             <Label>Dog Name</Label>
                             <Input onChangeText={(name) => this.setState({name})} defaultValue={""} value={this.state.name} />

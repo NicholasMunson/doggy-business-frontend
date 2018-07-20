@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Router, Scene } from 'react-native-router-flux'
-import Dashboard from './app/Dashboard.js'
-import CreateDogProfile from './app/CreateDogProfile.js';
-import Reminder from './app/Reminder.js'; 
-import DogProfileForm from './app/DogProfileCard.js'
+import Dashboard from './components/Dashboard.js'
+import CreateDogProfile from './components/CreateDogProfile.js';
+import Reminder from './components/Reminder.js'; 
 const URL = "https://doggy-business-backendsql.herokuapp.com/dog-profile"
 
 const TabIcon = ({selected, title}) => {
@@ -29,6 +28,7 @@ export default class App extends Component {
         } 
 
     }
+
 
 
 

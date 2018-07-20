@@ -21,18 +21,21 @@ export default class App extends Component {
         super(props)
 
         this.state ={
-            dogName: '',
+            name: '',
             walkTime: '',
-            favoriteToy:'',
-            nickNames: ''
+            toy:'',
+            nickname: '',
+            modalVisible: false,
         } 
 
     }
 
+
+
+
 componentWillMount(){
     fetch(URL)
     .then(res => res.json())
-    .then(console.log)
 }
     render() {
         return (
@@ -45,14 +48,14 @@ componentWillMount(){
                         > 
                         <Scene 
                             key='profile' 
-                            component={() => <CreateDogProfile  component={() => <DogProfileForm />}/> }  
+                            component={() => <CreateDogProfile /> }  
                             title='Create Dog Profile'
                             style={styles.navigation} 
                             DogProfileForm={this.DogProfileForm}
                             />
                         <Scene
                             key='dashboard'
-                            component={() => <Dashboard/>}
+                            component={() => <Dashboard />}
                             title='Dashboard'
                             initial="initial" 
                             style={styles.navigation} />

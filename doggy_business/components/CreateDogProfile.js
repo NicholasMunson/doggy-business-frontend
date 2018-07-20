@@ -31,11 +31,12 @@ class DogForm extends Component {
                 "content-type" : "application/json"
             })
         }).then(this.reset)
-    
+        .catch(err => {
+            console.error(err)
+        })
+
     }
     reset = () => {
-        console.log("reset function ");
-        
         this.setState({
         
             name:"",
@@ -45,7 +46,6 @@ class DogForm extends Component {
     }
     
     render() {
-        
         return (
             <Container style={style.container}>
                 <Content >

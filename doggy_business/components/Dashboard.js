@@ -8,19 +8,17 @@ import { Container, Content, Card, CardItem, Text, Icon, Right } from 'native-ba
 
 const Dashboard = (props) =>{
     const dogData = !props.loadData === true ? console.log("loading...") :  props.dogDataInfo.profile.map(dog => <DogCard key={dog.id} style={styles.dogCard} dogProfile={dog}/>)
-    console.log(dogData)
-
-    
+        
     return (
-        <ScrollView>
-            <Container>
-                <Content>
-                    <Card>
-                    {dogData}
-                    </Card>
-                </Content>
-            </Container>
-        </ScrollView>
+        <View style={styles.container}>
+            <Text style={styles.topObj}>Welcome to the Dash</Text>
+            <Content style={styles.dogsObj}>
+                <Card>
+                {dogData}
+                </Card>
+            </Content>
+            <Text style={styles.bottomObj}></Text>
+        </View>
     )
 }
 const styles = StyleSheet.create({
@@ -31,10 +29,17 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     dogCard: {
-        width:100,
         fontSize: 20,
-        textAlign: 'center',
-    
+    },
+    topObj:{
+        flex:.2,
+    },
+    dogObj:{
+        flex:5,
+    },
+    bottomObj:{
+        flex:.2,
     }
+
 });
 export default Dashboard

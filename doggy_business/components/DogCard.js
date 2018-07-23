@@ -1,15 +1,15 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import { Container, Content, Card, CardItem, Text, Icon, Right } from 'native-base';
+import { Container, Content, Card, CardItem, Text, Icon, Right, Button } from 'native-base';
 
 const DogCard = (props) => {
     let dog = props.dogProfile
     return (
         <CardItem style={styles.card}>
             <Icon />
-            <Text>{dog.name}</Text>
-            <Text>Favorite Toy: {dog.toy}</Text>
-            <Text>Nickname: {dog.nickname}</Text>
+            <Text style={styles.text}>{dog.name}</Text>
+            <Text style={styles.text}>Nickname: {dog.nickname}</Text>
+            <Text style={styles.text}>Favorite Toy: {dog.toy}</Text>
         </CardItem>    
     ) 
 } 
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         
         
     },
-    welcome: {
+    text: {
         fontSize: 20,
         textAlign: 'center',
     },
@@ -30,7 +30,11 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection:"column",
         justifyContent: "space-between",
-        textAlign: "center"
+        alignContent: "center",
+        backgroundColor: "yellow",
+        margin: "0%",
+
+
     }
 });
 export default DogCard

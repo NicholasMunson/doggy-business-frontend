@@ -6,14 +6,13 @@ import DogCard from './DogCard.js'
 
 
 const Dashboard = (props) =>{
-    // const dogProfile = props.dogDataInfo.map(profile => <DogCard  profile={profile} key={profile.id} />)
-    const dogData = !props.loadData === true ? console.log("loading...") : props.dogDataInfo.profile.map(dog => dog)
+    const dogData = !props.loadData === true ? console.log("loading...") :  props.dogDataInfo.profile.map(dog => <DogCard key={dog.id} />)
     console.log(dogData)
 
     
     return (
         <View style={styles.container}>
-            {/* {dogProfile} */}
+            {dogData}
         </View>
     )
 

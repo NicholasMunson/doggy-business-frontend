@@ -8,6 +8,7 @@ const DogCard = (props) => {
     
     return (
         <View>
+            <Text>Dog Profile Card</Text>
         </View>
     )
 

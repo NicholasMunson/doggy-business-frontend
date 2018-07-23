@@ -2,7 +2,10 @@ import React from 'react'
 import { View, Text, Image } from 'react-native'
 
 const DogCard = (props) => {
-    console.log(props)
+    const dogCard = props.dogDataInfo
+    console.log(dogCard);
+    
+    
     return (
         <View>
         </View>

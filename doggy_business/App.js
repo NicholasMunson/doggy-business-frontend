@@ -26,19 +26,21 @@ export default class App extends Component {
             walkTime: '',
             toy:'',
             nickname: '',
-            modalVisible: false,
-        } 
+            loadData: false        } 
     }
 
-componentWillMount(){
+componentDidMount(){
     fetch(URL)
     .then(res => res.json())
-    .then(dogData => this.setState({
-        dogDataInfo: dogData
+    .then(dogProfile => this.setState({
+        dogDataInfo: dogProfile, 
+        loadData: true
     }))
 }
     render() {
         const dogDataInfo = this.state.dogDataInfo
+        const loadData = this.state.loadData
+        
         return (
             <Router>
                 <Scene key='root'>
@@ -56,7 +58,7 @@ componentWillMount(){
                             />
                         <Scene
                             key='dashboard'
-                            component={() => <Dashboard component={() => <DogCard dogDataInfo={dogDataInfo} /> } /> }
+                            component={() => <Dashboard dogDataInfo={dogDataInfo} loadData={loadData} component={() =>   <DogCard dogDataInfo={dogDataInfo}  loadData={loadData} /> } /> }
                             title='Dashboard'
                             initial="initial" 
                             style={styles.navigation} />

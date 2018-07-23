@@ -58,7 +58,7 @@ componentDidMount(){
                             />
                         <Scene
                             key='dashboard'
-                            component={() => <Dashboard dogDataInfo={dogDataInfo} loadData={loadData} component={() =>   <DogCard dogDataInfo={dogDataInfo}  loadData={loadData} /> } /> }
+                            component={() => <Dashboard dogDataInfo={dogDataInfo} loadData={loadData}  /> }
                             title='Dashboard'
                             initial="initial" 
                             style={styles.navigation} />

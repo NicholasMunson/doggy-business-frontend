@@ -4,12 +4,17 @@ import { Container, Content, Card, CardItem, Text, Icon, Right, Button } from 'n
 
 const DogCard = (props) => {
     let dog = props.dogProfile
+    let id = dog.id
     return (
         <CardItem style={styles.card}>
-            <Icon />
-            <Text style={styles.text}>{dog.name}</Text>
-            <Text style={styles.text}>Nickname: {dog.nickname}</Text>
-            <Text style={styles.text}>Favorite Toy: {dog.toy}</Text>
+            <View>
+                <Icon light style={styles.gear} name='cog' onIconClicked={ (id) => props.handleProfileOptions} />
+            </View>
+            <View style={styles.dogInfo}>
+                <Text style={styles.text}>{dog.name}</Text>
+                <Text style={styles.text}>Nickname: {dog.nickname}</Text>
+                <Text style={styles.text}>Favorite Toy: {dog.toy}</Text>
+            </View>
         </CardItem>    
     ) 
 } 
@@ -18,41 +23,31 @@ const styles = StyleSheet.create({
         flex: 1,
         width: 100,
         flexDirection: "row",
-        
-        
-        
     },
+
     text: {
-        fontSize: 20,
+        fontSize: 15,
+        width:"100%",
         textAlign: 'center',
     },
+
+    gear:{
+        top:"0%",
+        right:"0%",
+        color: "lightgrey"
+    },
+    dogInfo:{
+        width:"90%"
+
+    },
+
     card:{
         flex: 1,
-        flexDirection:"column",
+        flexDirection:"row-reverse",
         justifyContent: "space-between",
         alignContent: "center",
         backgroundColor: "yellow",
         margin: "0%",
-
-
     }
 });
 export default DogCard
-{/* <Text>{dogProfile.name}</Text> */}
-// <Container>
-//     <Content>
-//         <Card>
-//             <CardItem>
-//                 <Icon />
-//                 <Text>{dog.name}</Text>
-//                 <Right>
-//                 <Text>Favorite Toy: {dog.toy}</Text>
-//                 </Right>
-//                 <Text>Nickname: {dog.nickname}</Text>
-//             </CardItem>
-//         </Card>
-//     </Content>
-// </Container>
-// <View style={styles.container}>
-//     <Text style={styles.card}>{dog.name}</Text>
-// </View>

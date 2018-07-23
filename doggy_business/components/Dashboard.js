@@ -7,7 +7,7 @@ import { Container, Content, Card, CardItem, Text, Icon, Right } from 'native-ba
 
 
 const Dashboard = (props) =>{
-    const dogData = !props.loadData === true ? console.log("loading...") :  props.dogDataInfo.profile.map(dog => <DogCard key={dog.id} style={styles.dogCard} dogProfile={dog}/>)
+    const dogData = !props.loadData === true ? console.log("loading...") :  props.dogDataInfo.profile.map(dog => <DogCard key={dog.id} style={styles.dogCard} handleProfileOptions={props.handleProfileOptions} dogProfile={dog}/>)
         
     return (
         <View style={styles.container}>

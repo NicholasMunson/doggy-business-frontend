@@ -26,12 +26,8 @@ export default class App extends Component {
             nickname: '',
             modalVisible: false,
         } 
-
+d
     }
-
-
-
-
 
 componentWillMount(){
     fetch(URL)

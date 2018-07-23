@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Router, Scene } from 'react-native-router-flux'
 import Dashboard from './components/Dashboard.js'
 import CreateDogProfile from './components/CreateDogProfile.js';
+import DogCard from './components/DogCard.js'
 import Reminder from './components/Reminder.js'; 
 const URL = "https://doggy-business-backendsql.herokuapp.com/dog-profile"
 
@@ -20,20 +21,24 @@ export default class App extends Component {
         super(props)
 
         this.state ={
+            dogDataInfo: [],
             name: '',
             walkTime: '',
             toy:'',
             nickname: '',
             modalVisible: false,
         } 
-d
     }
 
 componentWillMount(){
     fetch(URL)
     .then(res => res.json())
+    .then(dogData => this.setState({
+        dogDataInfo: dogData
+    }))
 }
     render() {
+        const dogDataInfo = this.state.dogDataInfo
         return (
             <Router>
                 <Scene key='root'>
@@ -51,7 +56,7 @@ componentWillMount(){
                             />
                         <Scene
                             key='dashboard'
-                            component={() => <Dashboard />}
+                            component={() => <Dashboard component={() => <DogCard dogDataInfo={dogDataInfo} /> } /> }
                             title='Dashboard'
                             initial="initial" 
                             style={styles.navigation} />

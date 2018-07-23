@@ -1,16 +1,13 @@
 import React from 'react'
 import { View, Text, Image } from 'react-native'
 
-const DogProfileCard = (props) => {
-const dogProfile = {
-    name: 'Ruca',
-    favoriteToy: 'ball',
-    Nickname:'Sausage'
-}
+const DogCard = (props) => {
+    console.log(props)
     return (
         <View>
         </View>
     )
 
 } 
+export default DogCard
 {/* <Text>{dogProfile.name}</Text> */}

@@ -3,18 +3,16 @@ import { View, StyleSheet } from 'react-native'
 import { Container, Content, Card, CardItem, Text, Icon, Right, Button } from 'native-base';
 import { Actions } from 'react-native-router-flux'
 
+
 const DogCard = (props) => {
     let dog = props.dogProfile
     let id = dog.id
     return (
-        <CardItem style={styles.card}>
-            <View>
-                <Icon light style={styles.gear} name='cog' onIconClicked={ (id) => props.handleProfileOptions} onPress={() => Actions.ProfileSetting()} />
-            </View>
+        <CardItem style={styles.card} id={id} button onPress={() => { props.handleChangeEvent({dog}) ; props.handleModelView(true)  } }>
             <View style={styles.dogInfo}>
-                <Text style={styles.text}>{dog.name}</Text>
-                <Text style={styles.text}>Nickname: {dog.nickname}</Text>
-                <Text style={styles.text}>Favorite Toy: {dog.toy}</Text>
+                <Text style={styles.text} value={dog.name}>{dog.name}</Text>
+                <Text style={styles.text} value={dog.nickname}>Nickname: {dog.nickname}</Text>
+                <Text style={styles.text} value={dog.toy}>Favorite Toy: {dog.toy}</Text>
             </View>
         </CardItem>    
     ) 
@@ -25,30 +23,34 @@ const styles = StyleSheet.create({
         width: 100,
         flexDirection: "row",
     },
-
     text: {
-        fontSize: 15,
+        fontSize: 20,
+        color:'#CDD5D1',
         width:"100%",
         textAlign: 'center',
-    },
-
-    gear:{
-        top:"0%",
-        right:"0%",
-        color: "lightgrey"
+        
     },
     dogInfo:{
-        width:"90%"
+        width:"90%",
+        margin: 10,
+        
+        
+
 
     },
-
     card:{
         flex: 1,
         flexDirection:"row-reverse",
-        justifyContent: "space-between",
+        justifyContent: "center",
         alignContent: "center",
-        backgroundColor: "yellow",
-        margin: "0%",
-    }
+        backgroundColor: "#372772",
+        margin: 10,
+        borderRadius: 30,
+    
+    },
+    btn:{
+        margin:10,
+        zIndex: 50
+    },
 });
 export default DogCard

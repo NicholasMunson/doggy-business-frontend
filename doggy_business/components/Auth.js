@@ -15,15 +15,15 @@ const Auth = (props) => {
                             <Input placeholder="Username" style={styles.input}  required/>
                         </Item>
                         <Item last>
-                            <Input placeholder="Password"  style={styles.input}   required/>
+                            <Input placeholder="Password"   secureTextEntry style={styles.input}   required/>
                         </Item>
-                    </Form>
                     <Button block primary style={styles.btn}  onPress={() => props.handleAuth(true)} >
                         <Text>Login</Text>
                     </Button> 
                     <Button block primary style={styles.btn} >
                         <Text>Sign up</Text>
                     </Button>     
+                    </Form>
                     <Text style={styles.spacing} />    
                 </Content>
             </ImageBackground>
@@ -49,6 +49,7 @@ const styles= StyleSheet.create({
         shadowColor: "white",
         shadowOpacity: 10,
         shadowRadius: 4,
+        fontFamily:"AppleSDGothicNeo-Bold",
     },
     form:{
         flex: .5,

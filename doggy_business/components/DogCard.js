@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { Container, Content, Card, CardItem, Text, Icon, Right, Button } from 'native-base';
+import { Actions } from 'react-native-router-flux'
 
 const DogCard = (props) => {
     let dog = props.dogProfile
@@ -8,7 +9,7 @@ const DogCard = (props) => {
     return (
         <CardItem style={styles.card}>
             <View>
-                <Icon light style={styles.gear} name='cog' onIconClicked={ (id) => props.handleProfileOptions} />
+                <Icon light style={styles.gear} name='cog' onIconClicked={ (id) => props.handleProfileOptions} onPress={() => Actions.ProfileSetting()} />
             </View>
             <View style={styles.dogInfo}>
                 <Text style={styles.text}>{dog.name}</Text>

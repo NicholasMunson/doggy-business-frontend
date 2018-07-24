@@ -3,7 +3,6 @@ import { StyleSheet, View, ScrollView} from 'react-native'
 import { Actions } from 'react-native-router-flux'
 import DogCard from './DogCard.js'
 import { Container, Content, Card, CardItem, Text, Icon, Right } from 'native-base';
-// console.log(dogProfile);
 
 
 const Dashboard = (props) =>{

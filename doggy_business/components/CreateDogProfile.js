@@ -1,4 +1,4 @@
-import React, {Component } from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, Image } from 'react-native';
 import { Container,Content, Form, Item, Input, Label, Button } from 'native-base';
 import { Action, Actions } from 'react-native-router-flux'

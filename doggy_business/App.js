@@ -6,6 +6,7 @@ import CreateDogProfile from './components/CreateDogProfile.js';
 import DogCard from './components/DogCard.js'
 import Reminder from './components/Reminder.js'; 
 const URL = "https://doggy-business-backendsql.herokuapp.com/dog-profile"
+import Auth from './components/Auth.js'
 
 const TabIcon = ({selected, title}) => {
     return (<Text
@@ -26,7 +27,9 @@ export default class App extends Component {
             walkTime: '',
             toy:'',
             nickname: '',
-            loadData: false        } 
+            loadData: false,
+            auth: false,       
+        } 
     }
 
 componentDidMount(){
@@ -37,11 +40,23 @@ componentDidMount(){
         loadData: true
     }))
 }
+
+handleProfileOptions = (id) => {
+
+}
+handleAuth = (authOk) => {
+    this.setState({
+        auth: authOk
+    })
+}
     render() {
         const dogDataInfo = this.state.dogDataInfo
         const loadData = this.state.loadData
+        const auth = this.state.auth
         
         return (
+            auth === false ?
+                <Auth handleAuth={this.handleAuth} /> :
             <Router>
                 <Scene key='root'>
                     <Scene 
@@ -58,7 +73,10 @@ componentDidMount(){
                             />
                         <Scene
                             key='dashboard'
-                            component={() => <Dashboard dogDataInfo={dogDataInfo} loadData={loadData}  /> }
+                            component={() => <Dashboard 
+                            dogDataInfo={dogDataInfo} 
+                            loadData={loadData}  /> }
+                            handleProfileOptions={this.handleProfileOptions}
                             title='Dashboard'
                             initial="initial" 
                             style={styles.navigation} />

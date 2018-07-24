@@ -3,10 +3,7 @@ import { StyleSheet, View, ScrollView} from 'react-native'
 import { Actions } from 'react-native-router-flux'
 import DogCard from './DogCard.js'
 import { Content, Card,  Text, Button } from 'native-base';
-<<<<<<< HEAD
 import ProfileSettings from '../components/ProfileSettings.js'
-=======
->>>>>>> dbd098e2781dc722bd5aa1e741580382a3ba666f
 
 
 const Dashboard = (props) =>{
@@ -33,7 +30,6 @@ const Dashboard = (props) =>{
                 <ProfileSettings  
                 handleProfileOptions={props.handleProfileOptions} 
                 removeProfile={props.removeProfile} 
-                dogProfile={dog}
                 modalState={props.modalState}
                 handleProfileOptions={props.handleProfileOptions}
                 removeProfile={props.removeProfile}

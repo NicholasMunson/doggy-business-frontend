@@ -8,11 +8,7 @@ const DogCard = (props) => {
     let dog = props.dogProfile
     let id = dog.id
     return (
-<<<<<<< HEAD
         <CardItem style={styles.card} id={id} button onPress={() => { props.handleChangeEvent({dog}) ; props.handleModelView(true)  } }>
-=======
-        <CardItem style={styles.card} id={id} button onPress={() => { props.handleChangeEvent({dog}) } }>
->>>>>>> dbd098e2781dc722bd5aa1e741580382a3ba666f
             <View style={styles.dogInfo}>
                 <Text style={styles.text} value={dog.name}>{dog.name}</Text>
                 <Text style={styles.text} value={dog.nickname}>Nickname: {dog.nickname}</Text>

@@ -6,16 +6,22 @@ import { Content, Card,  Text, Button } from 'native-base';
 
 
 const Dashboard = (props) =>{
+
     const dogData = !props.loadData === true ? 
             console.log("loading...") : 
             props.dogDataInfo.profile.map(dog => <DogCard key={dog.id} style={styles.dogCard}  
             handleProfileOptions={props.handleProfileOptions} 
             removeProfile={props.removeProfile} 
             dogProfile={dog}
-
+            modalState={props.modalState}
+            handleProfileOptions={props.handleProfileOptions}
+            removeProfile={props.removeProfile}
+            handleModelView={props.handleModelView}
+            handleChangeEvent={props.handleChangeEvent} 
             />)
         
     return (
+
         <View style={styles.container}>
             <Text style={styles.topObj}>Welcome to the Dash</Text>
             <Content style={styles.dogsObj}>
@@ -37,6 +43,7 @@ const styles = StyleSheet.create({
     },
     dogCard: {
         fontSize: 20,
+        backgroundColor:"#DDF8E8",
     },
     topObj:{
         flex:.2,

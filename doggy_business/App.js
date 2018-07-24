@@ -28,7 +28,8 @@ export default class App extends Component {
             toy:'',
             nickname: '',
             loadData: false,
-            auth: false,       
+            auth: false,   
+            modelView: false,    
         } 
     }
 
@@ -39,6 +40,19 @@ componentDidMount(){
         dogDataInfo: dogProfile, 
         loadData: true
     }))
+}
+handleModelView = (change) => {
+    this.setState({
+        modelView: change
+    })
+
+    
+}
+
+handleChangeEvent = (dog) => {
+    console.log(dog.dog.name);
+    
+
 }
 
 handleProfileOptions = (id) => {
@@ -55,11 +69,14 @@ handleAuth = (authOk) => {
     })
 }
     render() {
+        const modalState = this.state.modelView
         const dogDataInfo = this.state.dogDataInfo
         const loadData = this.state.loadData
         const auth = this.state.auth
         const removeProfile = this.handleDogProfileDelete
         const handleProfileOptions = this.handleProfileOptions
+        const handleModelView = this.handleModelView
+        const handleChangeEvent = this.handleChangeEvent
         
         return (
             auth === false ?
@@ -82,17 +99,25 @@ handleAuth = (authOk) => {
                             key='dashboard'
                             component={() => <Dashboard 
                             dogDataInfo={dogDataInfo} 
-                            loadData={loadData}  /> }
+                            loadData={loadData} 
+                            modalState={modalState}
                             handleProfileOptions={handleProfileOptions}
                             removeProfile={removeProfile}
+                            handleModelView={handleModelView} 
+                            handleChangeEvent={handleChangeEvent}
+                            /> }
+                            
                             title='Dashboard'
                             initial="initial" 
-                            style={styles.navigation} />
+                            style={styles.navigation}
+                            />
                         <Scene 
                             key='reminder' 
                             component={Reminder} 
                             title='Business Reminder'
-                            style={styles.navigation} />
+                            style={styles.navigation} 
+
+                            />
                     </Scene>
                 </Scene>
             </Router>

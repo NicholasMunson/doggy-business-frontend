@@ -45,7 +45,12 @@ handleModelView = (change) => {
     this.setState({
         modelView: change
     })
+<<<<<<< HEAD
   
+=======
+
+    
+>>>>>>> dbd098e2781dc722bd5aa1e741580382a3ba666f
 }
 
 handleChangeEvent = (dog) => {

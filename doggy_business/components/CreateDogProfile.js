@@ -75,7 +75,7 @@ class DogForm extends Component {
             </Container>
         )
     }
-} 
+}   
 
     const style= StyleSheet.create({
     container:{

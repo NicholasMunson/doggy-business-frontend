@@ -3,18 +3,17 @@ import { View, StyleSheet } from 'react-native'
 import { Container, Content, Card, CardItem, Text, Icon, Right, Button } from 'native-base';
 import { Actions } from 'react-native-router-flux'
 
+
 const DogCard = (props) => {
     let dog = props.dogProfile
     let id = dog.id
     return (
         <CardItem style={styles.card}>
-            <View>
-                <Icon light style={styles.gear} name='cog' onIconClicked={ (id) => props.handleProfileOptions} onPress={() => Actions.ProfileSetting()} />
-            </View>
             <View style={styles.dogInfo}>
                 <Text style={styles.text}>{dog.name}</Text>
                 <Text style={styles.text}>Nickname: {dog.nickname}</Text>
                 <Text style={styles.text}>Favorite Toy: {dog.toy}</Text>
+                <Button></Button>
             </View>
         </CardItem>    
     ) 
@@ -25,13 +24,12 @@ const styles = StyleSheet.create({
         width: 100,
         flexDirection: "row",
     },
-
     text: {
-        fontSize: 15,
+        fontSize: 20,
+        color:'#CDD5D1',
         width:"100%",
         textAlign: 'center',
     },
-
     gear:{
         top:"0%",
         right:"0%",
@@ -39,16 +37,18 @@ const styles = StyleSheet.create({
     },
     dogInfo:{
         width:"90%"
-
     },
-
     card:{
         flex: 1,
         flexDirection:"row-reverse",
         justifyContent: "space-between",
         alignContent: "center",
-        backgroundColor: "yellow",
+        backgroundColor: "#372772",
         margin: "0%",
-    }
+    },
+    btn:{
+        margin:10,
+        zIndex: 50
+    },
 });
 export default DogCard

@@ -2,11 +2,18 @@ import React from 'react'
 import { StyleSheet, View, ScrollView} from 'react-native'
 import { Actions } from 'react-native-router-flux'
 import DogCard from './DogCard.js'
-import { Container, Content, Card, CardItem, Text, Icon, Right } from 'native-base';
+import { Content, Card,  Text, Button } from 'native-base';
 
 
 const Dashboard = (props) =>{
-    const dogData = !props.loadData === true ? console.log("loading...") :  props.dogDataInfo.profile.map(dog => <DogCard key={dog.id} style={styles.dogCard} handleProfileOptions={props.handleProfileOptions} dogProfile={dog}/>)
+    const dogData = !props.loadData === true ? 
+            console.log("loading...") : 
+            props.dogDataInfo.profile.map(dog => <DogCard key={dog.id} style={styles.dogCard}  
+            handleProfileOptions={props.handleProfileOptions} 
+            removeProfile={props.removeProfile} 
+            dogProfile={dog}
+
+            />)
         
     return (
         <View style={styles.container}>
@@ -17,13 +24,14 @@ const Dashboard = (props) =>{
                 </Card>
             </Content>
             <Text style={styles.bottomObj}></Text>
+            
         </View>
     )
 }
 const styles = StyleSheet.create({
     container: { 
         flex: 1,
-        backgroundColor: 'yellow',
+        backgroundColor: '#CDD5D1',
         alignItems: 'center',
         justifyContent: 'center'
     },

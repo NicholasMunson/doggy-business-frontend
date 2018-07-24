@@ -44,6 +44,11 @@ componentDidMount(){
 handleProfileOptions = (id) => {
 
 }
+
+handleDogProfileDelete = (id) => {
+
+}
+
 handleAuth = (authOk) => {
     this.setState({
         auth: authOk
@@ -53,6 +58,8 @@ handleAuth = (authOk) => {
         const dogDataInfo = this.state.dogDataInfo
         const loadData = this.state.loadData
         const auth = this.state.auth
+        const removeProfile = this.handleDogProfileDelete
+        const handleProfileOptions = this.handleProfileOptions
         
         return (
             auth === false ?
@@ -76,7 +83,8 @@ handleAuth = (authOk) => {
                             component={() => <Dashboard 
                             dogDataInfo={dogDataInfo} 
                             loadData={loadData}  /> }
-                            handleProfileOptions={this.handleProfileOptions}
+                            handleProfileOptions={handleProfileOptions}
+                            removeProfile={removeProfile}
                             title='Dashboard'
                             initial="initial" 
                             style={styles.navigation} />

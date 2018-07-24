@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, Alert } from 'react-native';
 import { Router, Scene } from 'react-native-router-flux'
 import Dashboard from './components/Dashboard.js'
 import CreateDogProfile from './components/CreateDogProfile.js';
@@ -41,12 +41,32 @@ componentDidMount(){
         loadData: true
     }))
 }
-handleModelView = (change) => {
+handleModelView = (change, doggy) => {
+    let dog = doggy.dog
     this.setState({
-        modelView: change
+        modelView: change,
+        name: dog.name,
+        nickname: dog.nickname,
+        toy: dog.toy,
+        
     })
-  
+    console.log(dog.dog)
 }
+
+alert = (dog) =>{ 
+    let id = dog.dog.id
+    Alert.alert(
+    'Hold up...',
+    `Are you sure you want to delete ${dog.dog.name}'s profile?`,
+    [
+        {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+        {text: 'OK', onPress: () => {this.handleDogProfileDelete(id)}},
+    ],
+    { cancelable: false }
+    )
+}
+
+
 
 handleChangeEvent = (dog) => {
     console.log(dog.dog.name);
@@ -59,6 +79,14 @@ handleProfileOptions = (id) => {
 }
 
 handleDogProfileDelete = (id) => {
+    let deleteUrl = `${URL}/${id}`
+    fetch(deleteUrl, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" }
+    })
+    .then(this.handleErrors)
+    .then(res => res.json())
+    .then(console.log)
 
 }
 
@@ -76,6 +104,8 @@ handleAuth = (authOk) => {
         const handleProfileOptions = this.handleProfileOptions
         const handleModelView = this.handleModelView
         const handleChangeEvent = this.handleChangeEvent
+        const currentState = this.state
+        const alert = this.alert
         
         return (
             auth === false ?
@@ -104,6 +134,8 @@ handleAuth = (authOk) => {
                             removeProfile={removeProfile}
                             handleModelView={handleModelView} 
                             handleChangeEvent={handleChangeEvent}
+                            currentState={currentState}
+                            alert={alert}
                             /> }
                             
                             title='Dashboard'
@@ -115,7 +147,6 @@ handleAuth = (authOk) => {
                             component={Reminder} 
                             title='Business Reminder'
                             style={styles.navigation} 
-
                             />
                     </Scene>
                 </Scene>

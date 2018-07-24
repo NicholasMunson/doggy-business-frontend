@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, ScrollView} from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { Actions } from 'react-native-router-flux'
 import DogCard from './DogCard.js'
 import { Content, Card,  Text, Button } from 'native-base';
@@ -18,7 +18,8 @@ const Dashboard = (props) =>{
             handleProfileOptions={props.handleProfileOptions}
             removeProfile={props.removeProfile}
             handleModelView={props.handleModelView}
-            handleChangeEvent={props.handleChangeEvent} 
+            handleChangeEvent={props.handleChangeEvent}
+            alert={props.alert} 
             />)
         
         const dogProfileView = props.modalState === false ? 
@@ -27,7 +28,8 @@ const Dashboard = (props) =>{
                     {dogData}
                     </Card>
                 </Content> : 
-                <ProfileSettings  
+                <ProfileSettings
+                currentState={props.currentState}  
                 handleProfileOptions={props.handleProfileOptions} 
                 removeProfile={props.removeProfile} 
                 modalState={props.modalState}
@@ -40,7 +42,7 @@ const Dashboard = (props) =>{
     return (
 
         <View style={styles.container}>
-            <Text style={styles.topObj}>Welcome to the Dash</Text>
+            <Text style={styles.topObj}>Select a dog below</Text>
             {dogProfileView}
             <Text style={styles.bottomObj}></Text>
             
@@ -59,13 +61,13 @@ const styles = StyleSheet.create({
         backgroundColor:"#DDF8E8",
     },
     topObj:{
-        flex:.2,
+        // flex:.2,
     },
     dogObj:{
         flex:5,
     },
     bottomObj:{
-        flex:.2,
+        // flex:.1,
     }
 
 });

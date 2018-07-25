@@ -15,7 +15,6 @@ class ProfileSettings extends Component{
     }
     render(){  
         let dog = this.props.currentState
-        console.log(dog.name)
             return(
             <Container style={styles.container}>
                 <Content >
@@ -45,7 +44,6 @@ class ProfileSettings extends Component{
 const styles = StyleSheet.create({
     container:{
         backgroundColor:"#DDF8E8",
-        flex:1
 
     },
     img:{

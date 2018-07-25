@@ -79,6 +79,7 @@ handleChangeEvent = (dog) => {
 handleCaptureTimeEvent = (doggy) =>{
     let currentTime = moment(new Date().getTime()).format("DD-MM-YYYY hh:mm:ss")
     let dog = doggy.dog
+    console.log(currentTime)
 
             fetch(URLTime ,{
             method:"POST",

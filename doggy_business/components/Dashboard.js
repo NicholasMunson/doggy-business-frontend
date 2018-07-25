@@ -15,6 +15,7 @@ const Dashboard = (props) =>{
             handleProfileOptions={props.handleProfileOptions} 
             removeProfile={props.removeProfile} 
             dogProfile={dog}
+            walkAlert={props.walkAlert} 
             modalState={props.modalState}
             handleProfileOptions={props.handleProfileOptions}
             removeProfile={props.removeProfile}

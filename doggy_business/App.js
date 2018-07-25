@@ -79,6 +79,25 @@ alert = (dog) =>{
     )
 }
 
+walkAlert = (dog, currentTime) =>{ 
+    console.log(dog.name);
+    
+    Alert.alert(
+    `New walk alarm created for ${dog.name}! `,
+    `press OK to set or Cancel to cancel. `,
+    [
+        {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+        {text: 'OK', onPress: () => {this.handleAlarmCreate(currentTime)}},
+    ],
+    { cancelable: false }
+    )
+}
+
+handleAlarmCreate = (time) => {
+    console.log("working")
+
+}
+
 handleChangeEvent = (dog) => {
     console.log(dog.dog.name);
     
@@ -86,7 +105,7 @@ handleChangeEvent = (dog) => {
 }
 
 handleCaptureTimeEvent = (doggy) =>{
-    let currentTime = moment(new Date().getTime()).format("DD-MM-YYYY hh:mm:ss")
+    let currentTime = moment(new Date().getTime()).format("MM-DD-YYYY hh:mm:ss")
     let dog = doggy.dog
     this.setState({
         name:dog.name,
@@ -105,7 +124,7 @@ handleCaptureTimeEvent = (doggy) =>{
         }).then(this.reset)
         .catch(err => {
             console.error(err)
-        })
+        }).then(()=> this.walkAlert(dog, currentTime))
     
 }
 
@@ -147,6 +166,7 @@ handleAuth = (authOk) => {
         const handleChangeEvent = this.handleChangeEvent
         const currentState = this.state
         const alert = this.alert
+        const walkAlert = this.walkAlert
         const handleCaptureTimeEvent = this.handleCaptureTimeEvent
         const timeData = this.state.timeData
     
@@ -182,7 +202,8 @@ handleAuth = (authOk) => {
                             currentState={currentState}
                             alert={alert}
                             handleCaptureTimeEvent={handleCaptureTimeEvent}
-                            currentState={currentState}  
+                            currentState={currentState} 
+                            walkAlert={walkAlert} 
                             /> }
                             
                             title='Dashboard'

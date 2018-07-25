@@ -9,7 +9,8 @@ class Reminder extends Component {
     }
     render(){
         console.log(this.props.currentState)
-        // console.log(this.props.timeData.map(time => time.name))
+        let dogName = this.props.timeData.map(time => time.name)
+        
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>Business Reminders</Text>

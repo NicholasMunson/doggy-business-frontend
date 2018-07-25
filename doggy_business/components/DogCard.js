@@ -5,14 +5,21 @@ import { Actions } from 'react-native-router-flux'
 
 
 const DogCard = (props) => {
+    let currentDog = props.currentState.name
+    let currentTime = props.currentState.walkTime
     let dog = props.dogProfile
     let id = dog.id
+    // console.log(props.timeData.map(time => time.name === currentDog ? time.time[0] :console.log "No walk Time" ))
+    console.log(props);
+    
+    let dogFinder = currentDog == dog.name ? <Text  style={styles.text} value={currentTime}>Last walk: {currentTime}</Text>: <Text  style={styles.text} value={currentTime} >No walk recorded</Text>
     return (
         <CardItem style={styles.card} id={id} >
             <View style={styles.dogInfo}>
                 <Text style={styles.text} value={dog.name}>{dog.name}</Text>
                 <Text style={styles.text} value={dog.nickname}>Nickname: {dog.nickname}</Text>
                 <Text style={styles.text} value={dog.toy}>Favorite Toy: {dog.toy}</Text>
+                {dogFinder}
                 <View style={styles.btnContainer}>
                     <Button block success style={styles.btnLRG} onPress={() => {props.handleCaptureTimeEvent({dog})}} >
                         <Text>WALK!</Text>

@@ -81,6 +81,13 @@ handleProfileOptions = (id) => {
 
 handleDogProfileDelete = (id) => {
     let deleteUrl = `${URL}/${id}`
+    const currentProfileList = this.state.dogDataInfo
+    let currentDog = this.state.dogDataInfo.filter(dog => dog.id == id)[0]
+    currentProfileList.splice(currentProfileList.indexOf(currentDog), 1)
+    this.setState({
+        dogDataInfo: currentProfileList
+    })
+    
     fetch(deleteUrl, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" }

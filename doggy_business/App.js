@@ -55,7 +55,6 @@ handleModelView = (change, doggy) => {
         toy: dog.toy,
         
     })
-    console.log(dog.dog)
 }
 
 alert = (dog) =>{ 

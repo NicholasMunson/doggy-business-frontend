@@ -1,33 +1,58 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, ImageBackground } from 'react-native'
-import { Button } from 'native-base';
+import { Container, Content, Form, Item, Input, Label, Button } from 'native-base';
 import { Actions } from 'react-native-router-flux'
 
 class ProfileSettings extends Component{
     constructor(props){
         super(props)
-        console.log(props.currentState)
+        this.state={
+            name: '',
+            walkTime: '',
+            toy:'',
+            nickname: '',
+        }
     }
     render(){  
         let dog = this.props.currentState
+        console.log(dog.name)
             return(
-                <ImageBackground source={require('./images/dog.png')} style={styles.background}>
-                    <View style={styles.container}>
-                        <Text style={styles.title}>{dog.name}</Text>
-                        <View>
-                        </View>
-                    </View>
-                </ImageBackground>
+            <Container style={styles.container}>
+                <Content >
+                    <Form className="profile-form">
+                        <Item inlineLabel >
+                            <Label>Name</Label>
+                            <Input onChangeText={(name) => this.setState({name})} defaultValue={dog.name} value={this.state.name} />
+                        </Item>
+                        <Item inlineLabel>
+                            <Label>Favorite Toy</Label>
+                            <Input onChangeText={(toy) => this.setState({toy})} defaultValue={dog.toy} value={this.state.toy} />
+                        </Item>
+                        <Item inlineLabel last>
+                            <Label>Nickname</Label>
+                            <Input onChangeText={(nickname) => this.setState({nickname})} defaultValue={dog.nickname} value={this.state.nickname}  />
+                        </Item>
+                        <Button block primary onPress={() => {this.props.handleModelView(false)}} >
+                            <Text>Create Dog Profile</Text>
+                        </Button>
+                    </Form>
+                </Content>
+            </Container>
             )
     }
 
 }
 const styles = StyleSheet.create({
-    container: { 
-        flex: 1,
-        backgroundColor: '#CDD5D1',
-        alignItems: 'center',
-        justifyContent: 'center'
+    container:{
+        backgroundColor:"#DDF8E8",
+        flex:1
+
+    },
+    img:{
+        flex:1, 
+        height: undefined, 
+        width: undefined,
+        marginTop:"0%"
     },
     title:{
         top: 0,

@@ -7,6 +7,7 @@ import DogCard from './components/DogCard.js'
 import Reminder from './components/Reminder.js'; 
 const URL = "https://doggy-business-backendsql.herokuapp.com/dog-profile"
 const URLTime = "https://doggy-business-backendsql.herokuapp.com/business-time"
+const timer = require('react-native-timer');
 import Auth from './components/Auth.js'
 import Moment from 'react-moment';
 var moment = require('moment');
@@ -87,14 +88,26 @@ walkAlert = (dog, currentTime) =>{
     `press OK to set or Cancel to cancel. `,
     [
         {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-        {text: 'OK', onPress: () => {this.handleAlarmCreate(currentTime)}},
+        {text: 'OK', onPress: () => {this.handleAlarmCreate(dog)}},
     ],
     { cancelable: false }
     )
 }
 
-handleAlarmCreate = (time) => {
-    console.log("working")
+handleAlarmCreate = (dog) => {
+    timer.setTimeout("walkAlarm", () => this.walkDogAlarm(dog), 3000);
+
+}
+walkDogAlarm = (dog) => {
+    Alert.alert(
+        `Time to take ${dog.name} for a walk! `,
+        `press OK to go! or cancel to clean up pee... `,
+        [
+            {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+            {text: 'OK', onPress: () => console.log('Going Pee!'), style: 'cancel'},
+        ],
+        { cancelable: false }
+        )
 
 }
 

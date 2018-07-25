@@ -36,6 +36,7 @@ export default class App extends Component {
 componentDidMount(){
     fetch(URL)
     .then(res => res.json())
+    .then(res => res.profile)
     .then(dogProfile => this.setState({
         dogDataInfo: dogProfile, 
         loadData: true

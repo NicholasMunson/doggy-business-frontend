@@ -8,6 +8,7 @@ import Reminder from './components/Reminder.js';
 const URL = "https://doggy-business-backendsql.herokuapp.com/dog-profile"
 import Auth from './components/Auth.js'
 import Moment from 'react-moment';
+var moment = require('moment');
 console.disableYellowBox = true;
 
 const TabIcon = ({selected, title}) => {
@@ -76,7 +77,9 @@ handleChangeEvent = (dog) => {
 }
 
 handleCaptureTimeEvent = () =>{
-    console.log(Date.now())
+    let currentTime = moment(new Date().getTime()).format("DD MMM YYYY hh:mm:ss")
+    console.log(currentTime);
+    
 }
 
 handleProfileOptions = (id) => {

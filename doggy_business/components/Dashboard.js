@@ -10,7 +10,8 @@ const Dashboard = (props) =>{
 
     const dogData = !props.loadData === true ? 
             console.log("loading...") : 
-            props.dogDataInfo.map(dog => <DogCard key={dog.id} style={styles.dogCard}  
+            props.dogDataInfo.map(dog => <DogCard key={dog.id} style={styles.dogCard} 
+            currentState={props.currentState}  
             handleProfileOptions={props.handleProfileOptions} 
             removeProfile={props.removeProfile} 
             dogProfile={dog}

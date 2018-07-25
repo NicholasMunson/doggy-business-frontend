@@ -27,6 +27,7 @@ export default class App extends Component {
 
         this.state ={
             dogDataInfo: [],
+            timeData:[],
             name: '',
             walkTime: '',
             toy:'',
@@ -37,6 +38,7 @@ export default class App extends Component {
         } 
     }
 
+
 componentDidMount(){
     fetch(URL)
     .then(res => res.json())
@@ -45,7 +47,14 @@ componentDidMount(){
         dogDataInfo: dogProfile, 
         loadData: true
     }))
+    fetch(URLTime)
+    .then(res => res.json())
+    .then(res => res.time)
+    .then(walkTimes => this.setState({
+        timeData: walkTimes
+    }))
 }
+
 handleModelView = (change, doggy) => {
     let dog = doggy.dog
     this.setState({
@@ -79,7 +88,10 @@ handleChangeEvent = (dog) => {
 handleCaptureTimeEvent = (doggy) =>{
     let currentTime = moment(new Date().getTime()).format("DD-MM-YYYY hh:mm:ss")
     let dog = doggy.dog
-    console.log(currentTime)
+    this.setState({
+        name:dog.name,
+        walkTime: currentTime
+    })
 
             fetch(URLTime ,{
             method:"POST",
@@ -136,6 +148,8 @@ handleAuth = (authOk) => {
         const currentState = this.state
         const alert = this.alert
         const handleCaptureTimeEvent = this.handleCaptureTimeEvent
+        const timeData = this.state.timeData
+    
         
         return (
             auth === false ?
@@ -149,10 +163,11 @@ handleAuth = (authOk) => {
                         > 
                         <Scene 
                             key='profile' 
-                            component={() => <CreateDogProfile /> }  
+                            component={() => <CreateDogProfile 
+                            dogDataInfo={dogDataInfo} 
+                            /> }  
                             title='Create Dog Profile'
-                            style={styles.navigation} 
-                            DogProfileForm={this.DogProfileForm}
+                            style={styles.navigation}  
                             />
                         <Scene
                             key='dashboard'
@@ -167,6 +182,7 @@ handleAuth = (authOk) => {
                             currentState={currentState}
                             alert={alert}
                             handleCaptureTimeEvent={handleCaptureTimeEvent}
+                            currentState={currentState}  
                             /> }
                             
                             title='Dashboard'
@@ -175,7 +191,11 @@ handleAuth = (authOk) => {
                             />
                         <Scene 
                             key='reminder' 
-                            component={Reminder} 
+                            component={ () => 
+                            <Reminder 
+                            timeData={timeData} 
+                            currentState={currentState}     
+                            />} 
                             title='Business Reminder'
                             style={styles.navigation} 
                             />

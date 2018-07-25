@@ -79,7 +79,7 @@ class DogForm extends Component {
 
     const style= StyleSheet.create({
     container:{
-        backgroundColor:"chartreuse",
+        backgroundColor:"#DDF8E8",
 
     },
     img:{

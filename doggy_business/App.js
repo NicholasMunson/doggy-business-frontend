@@ -6,8 +6,9 @@ import CreateDogProfile from './components/CreateDogProfile.js';
 import DogCard from './components/DogCard.js'
 import Reminder from './components/Reminder.js'; 
 const URL = "https://doggy-business-backendsql.herokuapp.com/dog-profile"
-console.disableYellowBox = true;
 import Auth from './components/Auth.js'
+import Moment from 'react-moment';
+console.disableYellowBox = true;
 
 const TabIcon = ({selected, title}) => {
     return (<Text

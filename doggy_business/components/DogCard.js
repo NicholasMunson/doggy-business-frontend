@@ -14,7 +14,7 @@ const DogCard = (props) => {
                 <Text style={styles.text} value={dog.nickname}>Nickname: {dog.nickname}</Text>
                 <Text style={styles.text} value={dog.toy}>Favorite Toy: {dog.toy}</Text>
                 <View style={styles.btnContainer}>
-                    <Button block success style={styles.btnLRG} onPress={() => {props.handleCaptureTimeEvent()}} >
+                    <Button block success style={styles.btnLRG} onPress={() => {props.handleCaptureTimeEvent({dog})}} >
                         <Text>WALK!</Text>
                     </Button>
                     <View>

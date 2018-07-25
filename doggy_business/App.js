@@ -6,6 +6,7 @@ import CreateDogProfile from './components/CreateDogProfile.js';
 import DogCard from './components/DogCard.js'
 import Reminder from './components/Reminder.js'; 
 const URL = "https://doggy-business-backendsql.herokuapp.com/dog-profile"
+const URLTime = "https://doggy-business-backendsql.herokuapp.com/business-time"
 import Auth from './components/Auth.js'
 import Moment from 'react-moment';
 var moment = require('moment');
@@ -76,9 +77,23 @@ handleChangeEvent = (dog) => {
 
 }
 
-handleCaptureTimeEvent = () =>{
-    let currentTime = moment(new Date().getTime()).format("DD MMM YYYY hh:mm:ss")
-    console.log(currentTime);
+handleCaptureTimeEvent = (doggy) =>{
+    let currentTime = moment(new Date().getTime()).format("DD-MM-YYYY hh:mm:ss")
+    let dog = doggy.dog
+
+            fetch(URLTime ,{
+            method:"POST",
+            body: JSON.stringify({
+                name:`${dog.name}`,
+                time:`${currentTime}`
+            }),
+            headers: new Headers({
+                "content-type" : "application/json"
+            })
+        }).then(this.reset)
+        .catch(err => {
+            console.error(err)
+        })
     
 }
 

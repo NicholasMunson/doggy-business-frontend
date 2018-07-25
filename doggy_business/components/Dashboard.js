@@ -20,6 +20,7 @@ const Dashboard = (props) =>{
             handleModelView={props.handleModelView}
             handleChangeEvent={props.handleChangeEvent}
             alert={props.alert} 
+            handleCaptureTimeEvent={props.handleCaptureTimeEvent}
             />)
         
         const dogProfileView = props.modalState === false ? 

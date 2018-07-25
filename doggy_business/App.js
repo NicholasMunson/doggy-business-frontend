@@ -67,12 +67,14 @@ alert = (dog) =>{
     )
 }
 
-
-
 handleChangeEvent = (dog) => {
     console.log(dog.dog.name);
     
 
+}
+
+handleCaptureTimeEvent = () =>{
+    console.log(Date.now())
 }
 
 handleProfileOptions = (id) => {
@@ -87,7 +89,6 @@ handleDogProfileDelete = (id) => {
     this.setState({
         dogDataInfo: currentProfileList
     })
-    
     fetch(deleteUrl, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" }
@@ -114,6 +115,7 @@ handleAuth = (authOk) => {
         const handleChangeEvent = this.handleChangeEvent
         const currentState = this.state
         const alert = this.alert
+        const handleCaptureTimeEvent = this.handleCaptureTimeEvent
         
         return (
             auth === false ?
@@ -144,6 +146,7 @@ handleAuth = (authOk) => {
                             handleChangeEvent={handleChangeEvent}
                             currentState={currentState}
                             alert={alert}
+                            handleCaptureTimeEvent={handleCaptureTimeEvent}
                             /> }
                             
                             title='Dashboard'

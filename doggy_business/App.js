@@ -223,16 +223,6 @@ handleAuth = (authOk) => {
                             initial="initial" 
                             style={styles.navigation}
                             />
-                        <Scene 
-                            key='reminder' 
-                            component={ () => 
-                            <Reminder 
-                            timeData={timeData} 
-                            currentState={currentState}     
-                            />} 
-                            title='Business Reminder'
-                            style={styles.navigation} 
-                            />
                     </Scene>
                 </Scene>
             </Router>
@@ -257,6 +247,16 @@ const styles = StyleSheet.create({
 });
 
 {/* <View style={styles.container}>
-  <Text style={styles.welcome}>Hello world suck my taint</Text>
-  <Dashboard />
+<Text style={styles.welcome}>Hello world suck my taint</Text>
+<Dashboard />
 </View> */}
+{/* <Scene 
+    key='reminder' 
+    component={ () => 
+    <Reminder 
+    timeData={timeData} 
+    currentState={currentState}     
+    />} 
+    title='Business Reminder'
+    style={styles.navigation} 
+    /> */}

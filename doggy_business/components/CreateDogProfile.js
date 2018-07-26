@@ -3,7 +3,7 @@ import { StyleSheet, Text, Image, ImageBackground  } from 'react-native';
 import { Container,Content, Form, Item, Input, Label, Button } from 'native-base';
 import { Action, Actions } from 'react-native-router-flux'
 const URL = "https://doggy-business-backendsql.herokuapp.com/dog-profile"
-
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 
 class DogForm extends Component {
@@ -30,7 +30,10 @@ class DogForm extends Component {
             headers: new Headers({
                 "content-type" : "application/json"
             })
-        }).then(this.reset)
+        }).then(res => {
+            console.log(this.props.dogDataInfo)
+        })
+        .then(this.reset)
         .catch(err => {
             console.error(err)
         })
@@ -47,29 +50,31 @@ class DogForm extends Component {
     
     render() {
         return (
-            <Container >
-                <ImageBackground source={require('./images/dog.png')} style={style.background}>
-                    <Content style={style.form} >
-                        <Form className="profile-form" style={style.formContainer}>
-                            <Item inlineLabel >
-                                <Label>Dog Name</Label>
-                                <Input onChangeText={(name) => this.setState({name})} defaultValue={""} value={this.state.name} />
-                            </Item>
-                            <Item inlineLabel>
-                                <Label>Favorite Toy</Label>
-                                <Input onChangeText={(toy) => this.setState({toy})} defaultValue={""} value={this.state.toy} />
-                            </Item>
-                            <Item inlineLabel last>
-                                <Label>Nickname</Label>
-                                <Input onChangeText={(nickname) => this.setState({nickname})} defaultValue={""} value={this.state.nickname}  />
-                            </Item>
-                            <Button style={style.btn} block primary onPress={(event) => {this.handlePostRequest(event);}} >
-                                <Text>Create Dog Profile</Text>
-                            </Button>
-                        </Form>
-                    </Content>
-                </ImageBackground>
-            </Container>
+            <KeyboardAwareScrollView behavior="padding" style={{flex:1}}>
+                <Container >
+                    <ImageBackground source={require('./images/dog.png')} style={style.background}>
+                        <Content style={style.form} >
+                            <Form className="profile-form" style={style.formContainer}>
+                                <Item inlineLabel >
+                                    <Label>Dog Name</Label>
+                                    <Input onChangeText={(name) => this.setState({name})} defaultValue={""} value={this.state.name} />
+                                </Item>
+                                <Item inlineLabel>
+                                    <Label>Favorite Toy</Label>
+                                    <Input onChangeText={(toy) => this.setState({toy})} defaultValue={""} value={this.state.toy} />
+                                </Item>
+                                <Item inlineLabel last>
+                                    <Label>Nickname</Label>
+                                    <Input onChangeText={(nickname) => this.setState({nickname})} defaultValue={""} value={this.state.nickname}  />
+                                </Item>
+                                <Button style={style.btn} block primary onPress={(event) => {this.handlePostRequest(event);}} >
+                                    <Text>Create Dog Profile</Text>
+                                </Button>
+                            </Form>
+                        </Content>
+                    </ImageBackground>
+                </Container>
+            </KeyboardAwareScrollView>
         )
     }
 }   

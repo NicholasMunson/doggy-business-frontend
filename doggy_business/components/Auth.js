@@ -8,13 +8,10 @@ const Auth = (props) => {
     
     return(
         <KeyboardAwareScrollView behavior="padding" style={{flex:1}}>
-        <Container style={styles.container}>
+        <Container style={styles.container} >
                 <Image style={styles.image} source={require('./images/imageedit_9_9958397783.png')} />
                 <Content disableKBDismissScroll={true} >
                     <Form style={styles.form}>
-                        <Item>
-                            <Image style={styles.image} source={require('./images/imageedit_9_9958397783.png')} />
-                        </Item>
                         <Item>
                             <Input placeholder="Username" style={styles.input}  required />
                         </Item>

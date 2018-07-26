@@ -51,10 +51,10 @@ class DogForm extends Component {
     render() {
         return (
             <KeyboardAwareScrollView behavior="padding" style={{flex:1}}>
-                <Container >
-                    <ImageBackground source={require('./images/dog.png')} style={style.background}>
-                        <Content style={style.form} >
-                            <Form className="profile-form" style={style.formContainer}>
+                <Container style={style.container} >
+                    {/* <ImageBackground source={require('./images/dog.png')} style={style.background}> */}
+                        <Content >
+                            <Form className="profile-form" style={style.form} >
                                 <Item inlineLabel >
                                     <Label>Dog Name</Label>
                                     <Input onChangeText={(name) => this.setState({name})} defaultValue={""} value={this.state.name} />
@@ -72,7 +72,8 @@ class DogForm extends Component {
                                 </Button>
                             </Form>
                         </Content>
-                    </ImageBackground>
+                        <Image style={style.image} source={require('./images/imageedit_9_9958397783.png')} />
+                    {/* </ImageBackground> */}
                 </Container>
             </KeyboardAwareScrollView>
         )
@@ -81,27 +82,28 @@ class DogForm extends Component {
 
     const style= StyleSheet.create({
     container:{
-        backgroundColor:"#DDF8E8",
-        
+        backgroundColor:"#93BEDF",
     },
-    background:{
-        width:"100%", 
-        height:"100%",
+    image:{
+        flex:1,
+        height:"70%",
+        width:"70%",
+        justifyContent:"center",
+        left:50,
+        bottom:100,
     },
     formContainer:{
-        flex: .5,
+        flex: 1,
         height:"20%",
         backgroundColor:"#CDD5D1",
-        margin:10,
+        // margin:10,
     },
     form:{
-        marginTop:100,
-    },
-    img:{
-        flex:.5, 
-        height: undefined, 
-        width: undefined,
-        marginTop:"0%"
+        flex: .5,
+        height:"20%",
+        backgroundColor:"#CFDBD5",
+        margin:10,
+        top:10,
     },
     btn:{
         margin:10,

@@ -90,7 +90,7 @@ class DogForm extends Component {
         width:"70%",
         justifyContent:"center",
         left:50,
-        bottom:100,
+        bottom:107,
     },
     formContainer:{
         flex: 1,

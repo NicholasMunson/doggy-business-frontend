@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, Image } from 'react-native'
 import { Actions } from 'react-native-router-flux'
 import DogCard from './DogCard.js'
 import { Content, Card,  Text, Button } from 'native-base';
@@ -27,7 +27,7 @@ const Dashboard = (props) =>{
         
         const dogProfileView = props.modalState === false ? 
                 <Content style={styles.dogsObj}>
-                    <Card>
+                    <Card transparent style={{backgroundColor:"#93BEDF"}}>
                     {dogData}
                     </Card>
                 </Content> : 
@@ -45,7 +45,7 @@ const Dashboard = (props) =>{
     return (
 
         <View style={styles.container}>
-            <Text style={styles.topObj}>Select a dog below</Text>
+            <Image source={require("./images/doggyBusinessTitle.png") } />>
             {dogProfileView}
             <Text style={styles.bottomObj}></Text>
             
@@ -55,22 +55,26 @@ const Dashboard = (props) =>{
 const styles = StyleSheet.create({
     container: { 
         flex: 1,
-        backgroundColor: '#CDD5D1',
+        backgroundColor: '#93BEDF',
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    title:{
+        height:"90%",
+        width:"90%",
     },
     dogCard: {
         fontSize: 20,
         backgroundColor:"#DDF8E8",
     },
     topObj:{
-        // flex:.2,
+        flex:.2,
     },
     dogObj:{
-        flex:5,
+        flex:1,
     },
     bottomObj:{
-        // flex:.1,
+        flex:.1,
     }
 
 });

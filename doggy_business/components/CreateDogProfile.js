@@ -96,7 +96,6 @@ class DogForm extends Component {
         flex: 1,
         height:"20%",
         backgroundColor:"#CDD5D1",
-        // margin:10,
     },
     form:{
         flex: .5,

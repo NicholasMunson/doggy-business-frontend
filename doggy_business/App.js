@@ -141,8 +141,12 @@ handleCaptureTimeEvent = (doggy) =>{
     
 }
 
-handleProfileOptions = (id) => {
+addNewDog = (newDogObj, newState) => {
+    console.log(newDogObj)
+    let dogData = this.state.dogDataInfo
+    console.log(dogData, newState)
 
+    dogData.unshift(newDogObj)
 }
 
 handleDogProfileDelete = (id) => {
@@ -163,6 +167,7 @@ handleDogProfileDelete = (id) => {
 
 }
 
+
 handleAuth = (authOk) => {
     this.setState({
         auth: authOk
@@ -182,6 +187,7 @@ handleAuth = (authOk) => {
         const walkAlert = this.walkAlert
         const handleCaptureTimeEvent = this.handleCaptureTimeEvent
         const timeData = this.state.timeData
+        const addNewDog  = this.addNewDog 
     
         
         return (
@@ -198,6 +204,7 @@ handleAuth = (authOk) => {
                             key='profile' 
                             component={() => <CreateDogProfile 
                             dogDataInfo={dogDataInfo} 
+                            addNewDog={addNewDog}
                             /> }  
                             title='Create Dog Profile'
                             style={styles.navigation}  

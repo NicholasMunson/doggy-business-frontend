@@ -4,30 +4,30 @@ import { Container,Content, Form, Item, Input, Label, Button } from 'native-base
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 const Auth = (props) => {
-    console.log(props.handleAuth);
+
     
     return(
         <KeyboardAwareScrollView behavior="padding" style={{flex:1}}>
-        <Container style={styles.container} >
-                <Image style={styles.image} source={require('./images/imageedit_9_9958397783.png')} />
-                <Content disableKBDismissScroll={true} >
-                    <Form style={styles.form}>
-                        <Item>
-                            <Input placeholder="Username" style={styles.input}  required />
-                        </Item>
-                        <Item last>
-                            <Input placeholder="Password" secureTextEntry style={styles.input}   required/>
-                        </Item>
-                        <Button block primary style={styles.btn}  onPress={() => props.handleAuth(true)} >
-                            <Text>Login</Text>
-                        </Button> 
-                        <Button block primary style={styles.btn} >
-                            <Text>Sign up</Text>
-                        </Button>     
-                    </Form>
-                    <Text style={styles.spacing} />    
-                </Content>
-        </Container>
+            <Container style={styles.container} >
+                    <Image style={styles.image} source={require('./images/imageedit_9_9958397783.png')} />
+                    <Content disableKBDismissScroll={true} >
+                        <Form style={styles.form}>
+                            <Item>
+                                <Input placeholder="Username" style={styles.input}  required />
+                            </Item>
+                            <Item last>
+                                <Input placeholder="Password" secureTextEntry style={styles.input}   required/>
+                            </Item>
+                            <Button block primary style={styles.btn}  onPress={() => props.handleAuth(true)} >
+                                <Text>Login</Text>
+                            </Button> 
+                            <Button block primary style={styles.btn} >
+                                <Text>Sign up</Text>
+                            </Button>     
+                        </Form>
+                        <Text style={styles.spacing} />    
+                    </Content>
+            </Container>
         </KeyboardAwareScrollView>
     )
     

@@ -33,6 +33,7 @@ class DogForm extends Component {
         }).then(res => {
             console.log(this.props.dogDataInfo)
         })
+        .then(this.props.addNewDog(this.state, this.props.dogDataInfo))
         .then(this.reset)
         .catch(err => {
             console.error(err)
@@ -49,6 +50,7 @@ class DogForm extends Component {
     }
     
     render() {
+        console.log(this.props.addNewDog)
         return (
             <KeyboardAwareScrollView behavior="padding" style={{flex:1}}>
                 <Container style={style.container} >

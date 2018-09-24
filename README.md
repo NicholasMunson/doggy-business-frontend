@@ -1,1 +1,2 @@
 
+Doggy Business is a fullstack React-Native application built in 10 days that reminds users to let their dog out to do their "business". The app relies on user data to automatically schedule an alarm for the dogs next business adventure. The app records each time the dog is taken out then averages the times to find the perfect time for the dog to go out to finish their business. A puppy on a schedule will have less accidents and therefore less messes for their human to clean up. 
